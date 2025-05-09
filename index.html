@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerador de Declaração de Matrícula e Solicitação de Estágio - IFRO Campus Jaru">
+    <title>IFRO Jaru - Gerador de Declaração de Estágio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logomarca do Instituto Federal de Rondônia - Campus Jaru" id="logo">
+
+        <h1>Gerar Declaração de Estágio</h1>
+
+        <form id="declarationForm" onsubmit="return false;">
+            <div class="form-group name-gender-group">
+                <div class="input-wrapper name-wrapper">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required aria-required="true" placeholder="Digite seu nome completo">
+                </div>
+                <div class="input-wrapper gender-wrapper">
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo" name="sexo" required aria-required="true" disabled>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="matricula">Número de Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" required aria-required="true" pattern="[0-9]{13}" maxlength="13" placeholder="Apenas números (13 dígitos)" disabled inputmode="numeric">
+                 <small>Formato esperado: 13 números (Ex: 2023110050046)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="curso">Selecione seu Curso:</label>
+                <select id="curso" name="curso" required aria-required="true" disabled>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="Curso Técnico em Administração">Curso Técnico em Administração</option>
+                    <option value="Curso Técnico em Alimentos">Curso Técnico em Alimentos</option>
+                    <option value="Curso Técnico em Comércio">Curso Técnico em Comércio</option>
+                    <option value="Curso Técnico em Zootecnia">Curso Técnico em Zootecnia</option>
+                    <option value="Bacharelado em Medicina Veterinária">Bacharelado em Medicina Veterinária</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="empresa">Nome da Empresa:</label>
+                <input type="text" id="empresa" name="empresa" required aria-required="true" placeholder="Digite o nome da empresa onde deseja estagiar" disabled>
+            </div>
+
+            <button type="button" id="downloadBtn" disabled aria-disabled="true">
+                Baixar Declaração
+            </button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

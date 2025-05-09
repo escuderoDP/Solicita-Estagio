@@ -1,0 +1,173 @@
+/* Paleta de Cores Baseada no site e logo do IFRO */
+:root {
+    --ifro-green: #006633; /* Verde principal do IFRO */
+    --ifro-red: #cc0000; /* Vermelho do logo */
+    --light-gray: #f0f0f0; /* Cinza claro para fundos e desabilitados */
+    --medium-gray: #e0e0e0; /* Cinza para bordas e elementos desabilitados */
+    --dark-gray: #555; /* Cinza escuro para texto */
+    --text-color: #333;
+    --white: #ffffff;
+    --input-focus-border: #007bff; /* Azul para indicar foco (pode ajustar) */
+    --disabled-text: #999;
+    --disabled-bg: #e9ecef;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha ao topo se o conteúdo for menor */
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: var(--white);
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+#logo {
+    max-width: 280px; /* Ajuste conforme necessário */
+    height: auto;
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: var(--ifro-green);
+    margin-bottom: 30px;
+    font-size: 2em; /* Fonte maior para o título */
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left; /* Alinha labels à esquerda */
+}
+
+/* Agrupa nome e sexo lado a lado */
+.name-gender-group {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    gap: 20px; /* Espaço entre os campos */
+}
+
+.input-wrapper {
+    flex: 1; /* Ocupa espaço disponível */
+    min-width: 200px; /* Largura mínima antes de quebrar */
+}
+
+.name-wrapper {
+   flex-grow: 3; /* Faz o campo nome ocupar mais espaço */
+}
+.gender-wrapper {
+   flex-grow: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1em; /* Fonte maior para labels */
+    color: var(--dark-gray);
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 5px;
+    font-size: 1.1em; /* Fonte maior para inputs */
+    box-sizing: border-box; /* Inclui padding e borda na largura */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo inicial para o campo nome (destaque sutil) */
+#nome {
+   border-color: var(--dark-gray); /* Um pouco mais escuro para indicar atividade */
+}
+
+/* Estilo para campos desabilitados */
+input:disabled,
+select:disabled {
+    background-color: var(--disabled-bg);
+    border-color: var(--medium-gray);
+    color: var(--disabled-text);
+    cursor: not-allowed;
+    opacity: 0.7; /* Indica visualmente que está desabilitado */
+}
+
+/* Estilo para o botão */
+#downloadBtn {
+    background-color: var(--ifro-green);
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em; /* Fonte maior para o botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    display: inline-block; /* Para centralizar corretamente */
+    margin-top: 15px;
+    width: auto; /* Ou defina uma largura específica se preferir */
+}
+
+#downloadBtn:hover:not(:disabled) {
+    background-color: #004d26; /* Verde um pouco mais escuro no hover */
+}
+
+#downloadBtn:disabled {
+    background-color: var(--medium-gray);
+    color: var(--disabled-text);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Pequeno texto de ajuda */
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+/* Media Query para melhor responsividade em telas menores */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .name-gender-group {
+        flex-direction: column; /* Empilha nome e sexo */
+        gap: 15px;
+    }
+
+    .input-wrapper {
+        width: 100%; /* Ocupa largura total quando empilhado */
+    }
+
+    #downloadBtn {
+        width: 100%; /* Botão ocupa largura total */
+        padding: 12px;
+    }
+}
